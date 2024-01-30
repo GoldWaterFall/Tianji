@@ -6,6 +6,16 @@ on:
       - main
 
 jobs:
+  list-changed-files:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: List files changed in this push
+        run: |
+          git diff --name-only HEAD~1 HEAD
   check:
     runs-on: ubuntu-latest
 
